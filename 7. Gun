@@ -1,0 +1,49 @@
+Selenium Review 7. Ders
+WebTable : <table tagname'i ile oluşturulan webelementlere webtable diyoruz. İçerisinde oluşturulan tablonun, başlıkları ve satırları olmak üzere 2 ana bölümden oluşuyor.
+1. Bölüm : THEAD (table head)
+	Tablonun başlıklarının yer aldığı bölüm bulunur.
+2. Bölüm : TBODY (table body)
+	Tablonun içerisindeki satırlar (veriler) yer alıyor.
+tr  : 	tablonun içerisindeki satırları eklediğimiz webelement.
+th  :   tablonun içerisindeki başlıkları eklediğimiz webelement.
+td  :   bir satırın içerisindeki verileri(data) eklediğimiz webelement.
+-----------------------------xpath komutları---------------------------
+//table           : tabloyu bulmak için kullanırız.
+//table/thead     : tablonun üst kısmını (thead) bulmak için kullanırız.
+//table/tbody     : tablonun gövde kısmı (tbody) bulmak için kullanırız.
+//tbody/tr        : tablonun içerisindeki tüm satırları bulmak için..
+//tbody/tr[3]     : tablonun 3. satırını almak için kullanılır.
+//tbody/tr/td[5]  : tablonun tüm satrlarnın 5. sütunundaki dğrlri almk için
+//thead//th         : tablonun tüm başlıklarını almak için kullanılabilir.
+//tbody/tr[2]/td[5] : 2. satır 5. sütun gibi istediğimiz hücreyi yazdırma.
+***** "//" (çift slash) ile "/" (tek slash) farkı nedir ?
+"//" (çift) : Child ya da daha alt nesil manasına gelir.
+"/"  (tek)  : Child manasına gelir.
+//table/tr  : TABLE webelementinin ÇOCUĞU(child)'ı olan TR webelementi
+//table//tr : TABLE webelementinin ÇOCUĞU(child)'ı YA DA TORUNU(daha alt nesil) olan TR webelementi
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Code</th>
+			<th>Location</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td>123</td>
+			<td>Almanya</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>124</td>
+			<td>Belçika</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>125</td>
+			<td>Norveç</td>
+		</tr>
+	</tbody>
+</table>
