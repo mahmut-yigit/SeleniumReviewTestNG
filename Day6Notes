@@ -1,0 +1,16 @@
+Selenium Review 6. Ders
+System.getProperty("user.dir") : Bulunduğunuz klasörün dosya yolunu alırsınız.
+System.getProperty("user.home"): Bulunduğunuz kullanıcının ana klasörünün dosya yolunu alabiliyorsunuz.
+Files.exists(Paths.get("dosyaAdresi")) -> Yazılan adreste, o dosyanın var olup olmadığını kontrol ediyor. (TRUE ya da FALSE)
+Websitesine bilgisayarınızdan bir dosya upload etmek isterseniz, "Choose File" ya da "Gözat" şeklindeki webelementi locate edip, ona sendKeys ile dosya yolunu göndermeniz gerekir.
+ÖRNEK : chooseFile.sendKeys("C:\\Users\\isimsiz\\upload\\logo.png");
+Dosya İndirme : Websitesinden dosyayı indirdikten sonra, bir müddet bekleyip(dosyanın yüklenmesi zaman alabilir) bilgisayarımızda o dosyanın var olup olmadığını doğrulayabiliriz.
+Implicitly Wait : Bu komut driver'a verilir ve BÜTÜN WEBELEMENTLERİ kapsar. Aradığımız özellikte bir webelementin maksimum bulunma süresini belirleriz. Ve o webelement belirlediğimiz süre boyunca aranır. Eğer o süre içerisinde bulunamazsa, FAİL olur. Fakat, eğer bulunursa, kalan süre beklenmez ve direk test devam eder.
+	Örnek : driver.manage().timeOuts().implicitlyWait(40, TimeUnit.SECONDS);
+	eğer 5. saniyede bir webelement bulunursa, kalan 35 saniye beklenmez.
+	eğer 40 saniye boyunca bulunamazsa, 41. saniyede HATA verir.
+Explicit Wait : Bu bekleme türü ile herhangi bir webelement beklenen koşul sağlanıncaya dek bekleniyor. Eğer koşul, maksimum süre içerisinde gerçekleşmezse, webelement arama işlemi FAİL oluyor. Eğer aranılan özelliklerde ve beklenen şartları sağlayan bir webelement bulunursa, kalan süre beklenmeden, test işlemine devam ediliyor.
+Explicit Wait kullanmak için, WebDriverWait class'ından nesne üretmek zorundayız. Ürettiğimiz bu nesneyi kullanarak, bekleme işlemi gerçekleştirebiliriz.
+	Örnek : WebDriverWait wait = new WebDriverWait(driver  ,  120);
+        	WebElement message = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("message")));
+    Eğer 120 saniye boyunca, bu webelement bulunamazsa, 121. saniyede hata alırız. Fakat 5. saniyede bu webelement bulunursa, kalan 115 saniye es geçilir ve beklemek zorunda kalmayız.
